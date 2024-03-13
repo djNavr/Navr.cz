@@ -1,5 +1,10 @@
 from django.shortcuts import render
+#def home_page(request):
+#    return HttpResponse("Hello world!")
+
 from django.http import HttpResponse
+from django.template import loader
 
 def home_page(request):
-    return HttpResponse("Hello world!")
+  template = loader.get_template('home.html')
+  return HttpResponse(template.render())
