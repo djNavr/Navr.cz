@@ -23,7 +23,7 @@ def about(request):
     'sentence' : sentence,
     'den' : den,
   }
-  return HttpResponse(template.render())
+  return HttpResponse(template.render(context, request))
 
 def contact(request):
   template = loader.get_template('contact.html')
