@@ -1,7 +1,4 @@
 from django.shortcuts import render
-#def home_page(request):
-#    return HttpResponse("Hello world!")
-
 from django.http import HttpResponse
 from django.template import loader
 from random import choice
