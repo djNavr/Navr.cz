@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Phones Page
+{% endblock %}
+
+{% block content %}
+
+<h1>Phones</h1>
+
+<ul>
+  {% for x in phones %}
+    <li>{{ x.phonenumber }} {{ x.phonetype }}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

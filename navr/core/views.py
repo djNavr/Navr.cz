@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from random import choice
 from .scripts.date import den_name
+from .models import *
 
 def home_page(request):
   template = loader.get_template('home.html')
@@ -25,3 +26,19 @@ def about(request):
 def contact(request):
   template = loader.get_template('contact.html')
   return HttpResponse(template.render())
+
+def members(request):
+  mymembers = Member.objects.all().values()
+  template = loader.get_template('members.html')
+  context = {
+    'mymembers': mymembers,
+  }
+  return HttpResponse(template.render(context, request))
+
+def phones(request):
+  phones = Phones.objects.all().values()
+  template = loader.get_template('phones.html')
+  context = {
+    'phones': phones,
+  }
+  return HttpResponse(template.render(context, request))
