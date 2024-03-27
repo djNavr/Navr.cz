@@ -17,4 +17,6 @@ urlpatterns = [
     path('details/<int:id>', details, name='details'),
     path("basicform", my_view, name="basic_form"),
     path("member_form", member_form, name="member_form"),
+    path('country/', adress_view2, name='adress_view2'),
+    path('country/<str:city>/<int:street>', adress_view, name='adress_view'),
 ]

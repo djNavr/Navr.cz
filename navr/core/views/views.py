@@ -53,3 +53,39 @@ def details(request, id):
   }
   return HttpResponse(template.render(context, request))
 
+
+def adress_view(request, city, street):
+    # http://127.0.0.1:8000/country/hlavni/0
+    cities = {"hlavni": "Praha",
+              "mensi": "Brno"}
+
+    streets = ["prvni", "druha", "treti"]
+
+    my_city = cities.get(city)
+    my_street = streets[street]
+
+    template = loader.get_template('adress.html')
+    context = {
+        'city_name': my_city,
+        "street": my_street
+    }
+    return HttpResponse(template.render(context, request))
+
+
+
+def adress_view2(request):
+    # http://127.0.0.1:8000/country/?city=hlavni&street=0
+    cities = {"hlavni": "Praha",
+              "mensi": "Brno"}
+
+    streets = ["prvni", "druha", "treti"]
+
+    my_city = cities.get(request.GET["city"])
+    my_street = streets[int(request.GET["street"])]
+
+    template = loader.get_template('adress.html')
+    context = {
+        'city_name': my_city,
+        "street": my_street
+    }
+    return HttpResponse(template.render(context, request))
