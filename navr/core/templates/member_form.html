@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+    MembersForm
+{% endblock %}
+
+
+{% block content %}
+    <h1>MemberForm</h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Odeslat</button>
+    </form>
+    <br>
+{% endblock %}

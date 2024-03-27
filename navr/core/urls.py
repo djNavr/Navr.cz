@@ -1,3 +1,7 @@
+"""from django.contrib import admin
+from django.urls import path
+from .views.views import *
+"""
 from django.contrib import admin
 from django.urls import path
 from .views import *
@@ -11,5 +15,6 @@ urlpatterns = [
     path('details', details, name="details"),
     path('members', members, name='members'),
     path('details/<int:id>', details, name='details'),
-
+    path("basicform", my_view, name="basic_form"),
+    path("member_form", member_form, name="member_form"),
 ]

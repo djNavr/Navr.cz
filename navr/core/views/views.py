@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from random import choice
-from .scripts.date import den_name
-from .models import *
+from ..scripts.date import den_name
+from ..models import *
 
 def home_page(request):
   template = loader.get_template('home.html')
@@ -43,6 +43,8 @@ def phones(request):
   }
   return HttpResponse(template.render(context, request))
 
+
+
 def details(request, id):
   mymember = Member.objects.get(id=id)
   template = loader.get_template('details.html')
@@ -50,3 +52,4 @@ def details(request, id):
     'mymember': mymember,
   }
   return HttpResponse(template.render(context, request))
+
